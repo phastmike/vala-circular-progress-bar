@@ -137,7 +137,6 @@ namespace MyWidgets {
             var d = calculate_diameter ();
             min_h = MIN_D;
             if (d > MIN_D) {
-                min_h = d;
                 natural_h = d;
             } else {
                 natural_h = MIN_D;           
