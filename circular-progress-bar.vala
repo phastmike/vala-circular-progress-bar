@@ -7,7 +7,7 @@
  * It extends/subclasses Gtk.Bin instead of Gtk.DrawingArea.
  * 
  * Colors, font and some parameters could move onto CSS but for simplicity will be kept inline.
- * Minimun size is hardcoded on MIN_D. Minimum line width is 1.
+ * Minimum size is hardcoded on MIN_D. Minimum line width is 1.
  *
  * José Miguel Fonte
  */
@@ -154,8 +154,9 @@ namespace MyWidgets {
             Pango.Layout layout;
             Pango.FontDescription desc;
             
-            color = Gdk.RGBA ();
             cr.save ();
+
+            color = Gdk.RGBA ();
 
             var center_x = get_allocated_width () / 2;
             var center_y = get_allocated_height () / 2;
@@ -167,6 +168,7 @@ namespace MyWidgets {
                 line_width = radius;
             }
             
+            color = Gdk.RGBA ();
             cr.set_line_cap  (line_cap);
             cr.set_line_width (line_width);
 
