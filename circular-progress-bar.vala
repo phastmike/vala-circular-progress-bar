@@ -23,9 +23,17 @@ namespace MyWidgets {
         private string _center_fill_color; 
         private string _radius_fill_color;
         private string _progress_fill_color; 
+
+        [Description(nick = "Center Fill", blurb = "Center Fill toggle")]
         public bool center_filled {set; get; default = false;}
+
+        [Description(nick = "Radius Fill", blurb = "Radius Fill toggle")]
         public bool radius_filled {set; get; default = false;}
+
+        [Description(nick = "Font", blurb = "Font description without size, just the font name")]
         public string font {set; get; default = "URW Gothic L Book";}
+
+        [Description(nick = "Line Cap", blurb = "Line Cap for stroke as in Cairo.LineCap")]
         public Cairo.LineCap line_cap {set; get; default = Cairo.LineCap.BUTT;}
         
         [Description(nick = "Inside circle fill color", blurb = "Center pad fill color (Check Gdk.RGBA parse method)")]
