@@ -24,7 +24,7 @@ Clone this repository:
 
 	$ git clone https://github.com/phastmike/vala-circular-progress-bar
 
-then cd into it and run `make`
+then cd into it and run `make`:
 
 	$ cd vala-circular-progress-bar
 	$ make
