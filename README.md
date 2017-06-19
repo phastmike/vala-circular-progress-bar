@@ -22,12 +22,12 @@ Probably it will work with previous minor versions.
 ## Building and running
 Clone this repository:
 
-`$ git clone https://github.com/phastmike/vala-circular-progress-bar`
+	$ git clone https://github.com/phastmike/vala-circular-progress-bar
 
 then cd into it and run `make`
 
-    $ cd vala-circular-progress-bar
-    $ make
+   $ cd vala-circular-progress-bar
+   $ make
 
 After building you can run a simple demo program on the tests folder by typing:
 
