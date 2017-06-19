@@ -26,8 +26,8 @@ Clone this repository:
 
 then cd into it and run `make`
 
-   $ cd vala-circular-progress-bar
-   $ make
+	$ cd vala-circular-progress-bar
+	$ make
 
 After building you can run a simple demo program on the tests folder by typing:
 
