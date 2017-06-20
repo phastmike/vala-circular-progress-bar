@@ -42,6 +42,5 @@ The demo application allows you to tweak some of the properties in order the hav
 Although the use of the widget is somehow controlled or static, some improvements could be made if some dynamic behaviour is needed, will list them as a ToDo list:
 
 - [ ] improve resizing and properties relation
-- [ ] dynamic text resizing
 - [ ] define progress units (hardcoded atm as percentage)
 - [ ] add color/font selection to the demo application
