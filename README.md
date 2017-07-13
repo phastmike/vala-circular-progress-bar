@@ -19,6 +19,11 @@ This widget should build and run on systems with:
 
 Probably it will work with previous minor versions.
 
+## Use
+To use this widget you will only need to copy the file `circular-progress-bar.vala` onto your project and include it in your build system. The class is defined on the `MyWidgets` namespace and you can check it's use on the file `test1.vala` included on the tests folder in this repository.
+
+The following build instructions are used to build the test.
+
 ## Building and running
 Clone this repository:
 
