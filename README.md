@@ -38,9 +38,9 @@ After building you can run a simple demo program on the tests folder by typing:
 
 	$ ./tests/test1.vala
     
-#### Demo
+#### Test/Demo
 
-The demo application allows you to tweak some of the properties in order the have a quick visual feedback of the applied values. The horizontal scales control the progress bar percentage evolution and the width, in pixels, of the progress bar segment. The buttons bellow the scales, toggle the line cap, center filling (on/off) and progress bar as fully filled (on/off).
+The test/demo application allows you to tweak some of the properties in order the have a quick visual feedback of the applied values. The horizontal scales control the progress bar percentage evolution and the width, in pixels, of the progress bar segment. The buttons bellow the scales, toggle the line cap, center filling (on/off) and progress bar as fully filled (on/off).
 
 ## Future work
 
