@@ -1,7 +1,7 @@
 /* -*- Mode: Vala; indent-tabs-mode: nil; c-basic-offset: 4; tab-width: 4 -*- */
 /* vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab : */
 /*
- * test1.vala
+ * demo.vala
  *
  * Test CircularProgressBar visually. Tweak some settings/properties and check the results.
  * Could add color selection for fills.
@@ -26,9 +26,9 @@ public static int main (string[] args) {
     var button_radius_filled    = new Gtk.ToggleButton.with_label ("Radius Filled");
 
     mainbox.pack_start (pbar, true, true, 0);
-    mainbox.pack_end (buttonbox, false, false, 6); 
-    mainbox.pack_end (s_linew, false, false, 6); 
-    mainbox.pack_end (s_progr, false, false, 6); 
+    mainbox.pack_end (buttonbox, false, false, 6);
+    mainbox.pack_end (s_linew, false, false, 6);
+    mainbox.pack_end (s_progr, false, false, 6);
 
     buttonbox.pack_end (button_cap, false, false, 6);
     buttonbox.pack_start (button_center_filled, false, false, 6);
@@ -38,7 +38,7 @@ public static int main (string[] args) {
     s_progr.margin = 6;
     s_linew.margin = 6;
     buttonbox.margin = 6;
-    
+
     window.add (mainbox);
     window.show_all ();
 
@@ -59,7 +59,7 @@ public static int main (string[] args) {
     button_radius_filled.toggled.connect (() => {
         pbar.radius_filled = !pbar.radius_filled;
     });
-    
+
     s_progr.value_changed.connect (() => {
         pbar.percentage = s_progr.get_value ();
     });

@@ -20,9 +20,9 @@ This widget should build and run on systems with:
 Probably it will work with previous minor versions.
 
 ## Use
-To use this widget you will only need to copy the file `circular-progress-bar.vala` onto your project and include it in your build system. The class is defined on the `MyWidgets` namespace and you can check it's use on the file `test1.vala` included on the tests folder in this repository.
+To use this widget you will only need to copy the file `circular-progress-bar.vala` onto your project and include it in your build system. The class is defined on the `CircularProgressWidgets` namespace and you can check it's use on the file `demo.vala` included on the tests folder in this repository.
 
-The following build instructions are used to build the test.
+The following build instructions are used to build the demo.
 
 ## Building and running
 Clone this repository:
@@ -31,16 +31,16 @@ Clone this repository:
 
 then cd into it and run `make`:
 
-	$ cd vala-circular-progress-bar
+	$ cd vala-circular-progress-bar/tests
 	$ make
 
-After building you can run a simple demo program on the tests folder by typing:
+After building you can run the demo program in the tests folder by typing:
 
-	$ ./tests/test1.vala
+	$ ./demo
     
-#### Test/Demo
+#### Demo
 
-The test/demo application allows you to tweak some of the properties in order the have a quick visual feedback of the applied values. The horizontal scales control the progress bar percentage evolution and the width, in pixels, of the progress bar segment. The buttons bellow the scales, toggle the line cap, center filling (on/off) and progress bar as fully filled (on/off).
+The demo/test application allows you to tweak some of the properties in order the have a quick visual feedback of the applied values. The horizontal scales control the progress bar percentage evolution and the width, in pixels, of the progress bar segment. The buttons bellow the scales, toggle the line cap, center filling (on/off) and progress bar as fully filled (on/off).
 
 ## Future work
 
