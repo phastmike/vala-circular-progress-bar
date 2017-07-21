@@ -1,4 +1,4 @@
 *.c
 *.swp
-/tests/test1
+/tests/demo
 cpb-splash.xcf
