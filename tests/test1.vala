@@ -9,7 +9,7 @@
  * José Miguel Fonte
  */
 
-using MyWidgets;
+using CircularProgressWidgets;
 
 public static int main (string[] args) {
     Gtk.init (ref args);

@@ -15,7 +15,7 @@
 using Gtk;
 using Cairo;
 
-namespace MyWidgets {
+namespace CircularProgressWidgets {
     public class CircularProgressBar : Gtk.Bin {
         private const int MIN_D = 80;
         private int _line_width;
