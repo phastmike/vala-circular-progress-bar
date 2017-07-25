@@ -14,33 +14,56 @@ using CircularProgressWidgets;
 public static int main (string[] args) {
     Gtk.init (ref args);
 
-    var window  = new Gtk.Window ();
     var pbar    = new CircularProgressBar ();
-    var mainbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-    var s_progr = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 0.0, 1.0, 0.01);
-    var s_linew = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 1.0, 100.0, 1.0);
 
-    var buttonbox               = new Gtk.ButtonBox (Gtk.Orientation.VERTICAL);
-    var button_cap              = new Gtk.ToggleButton.with_label (pbar.line_cap.to_string ());
-    var button_center_filled    = new Gtk.ToggleButton.with_label ("Center Filled");
-    var button_radius_filled    = new Gtk.ToggleButton.with_label ("Radius Filled");
+    var builder = new Gtk.Builder.from_file ("menu.glade");
+    var window  = builder.get_object ("window1") as Gtk.Window; 
+    var viewp   = builder.get_object ("viewport1") as Gtk.Viewport;
+    var s_progr = builder.get_object ("scale1") as Gtk.Scale;    
+    var s_linew = builder.get_object ("scale2") as Gtk.Scale;    
 
-    mainbox.pack_start (pbar, true, true, 0);
-    mainbox.pack_end (buttonbox, false, false, 6);
-    mainbox.pack_end (s_linew, false, false, 6);
-    mainbox.pack_end (s_progr, false, false, 6);
+    var colorb1 = builder.get_object ("colorbutton1") as Gtk.ColorButton;
+    var colorb2 = builder.get_object ("colorbutton2") as Gtk.ColorButton;
+    var colorb3 = builder.get_object ("colorbutton3") as Gtk.ColorButton;
 
-    buttonbox.pack_end (button_cap, false, false, 6);
-    buttonbox.pack_start (button_center_filled, false, false, 6);
-    buttonbox.pack_end (button_radius_filled, false, false, 6);
+    var button_cap              = builder.get_object ("togglebutton3") as Gtk.ToggleButton;
+    var button_center_filled    = builder.get_object ("togglebutton1") as Gtk.ToggleButton;
+    var button_radius_filled    = builder.get_object ("togglebutton2") as Gtk.ToggleButton;
 
-    pbar.margin = 6;
-    s_progr.margin = 6;
-    s_linew.margin = 6;
-    buttonbox.margin = 6;
+    viewp.add (pbar);
 
-    window.add (mainbox);
-    window.show_all ();
+    // Set default tooltips
+    // Color representation mismatch on default and after change. FIXME!
+    button_cap.set_tooltip_text (pbar.line_cap.to_string ());
+    colorb1.set_tooltip_text (pbar.center_fill_color);
+    colorb2.set_tooltip_text (pbar.radius_fill_color);
+    colorb3.set_tooltip_text (pbar.progress_fill_color);
+
+    var color = Gdk.RGBA();
+
+    color.parse (pbar.center_fill_color);
+    colorb1.set_rgba (color);
+
+    color.parse (pbar.radius_fill_color);
+    colorb2.set_rgba (color);
+
+    color.parse (pbar.progress_fill_color);
+    colorb3.set_rgba (color);
+
+    colorb1.color_set.connect (() => {
+        pbar.center_fill_color = colorb1.get_rgba ().to_string ();
+        colorb1.set_tooltip_text (colorb1.get_rgba ().to_string ());
+    });
+
+    colorb2.color_set.connect ((new_color) => {
+        pbar.radius_fill_color = colorb2.get_rgba ().to_string ();
+        colorb2.set_tooltip_text (colorb2.get_rgba ().to_string ());
+    });
+
+    colorb3.color_set.connect ((new_color) => {
+        pbar.progress_fill_color = colorb3.get_rgba ().to_string ();
+        colorb3.set_tooltip_text (colorb3.get_rgba ().to_string ());
+    });
 
     button_cap.toggled.connect (() => {
         if (pbar.line_cap == Cairo.LineCap.ROUND) {
@@ -49,7 +72,7 @@ public static int main (string[] args) {
             pbar.line_cap =  Cairo.LineCap.ROUND;
         }
 
-        button_cap.set_label (pbar.line_cap.to_string ());
+        button_cap.set_tooltip_text (pbar.line_cap.to_string ());
     });
 
     button_center_filled.toggled.connect (() => {
@@ -71,6 +94,8 @@ public static int main (string[] args) {
     window.destroy.connect (() => {
         Gtk.main_quit ();
     });
+
+    window.show_all ();
 
     Gtk.main ();
 
