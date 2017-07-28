@@ -48,4 +48,8 @@ Although the use of the widget is somehow controlled or static, some improvement
 
 - [ ] improve resizing and properties relation
 - [ ] define progress units (hardcoded atm as percentage)
-- [ ] add color/font selection to the demo application
+- [x] add color selection to the demo application
+- [ ] add font selection to the demo application
+
+## Applications using this
+- Elementary OS Applet: [date-countdown](https://github.com/rickybas/date-countdown)
