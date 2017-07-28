@@ -52,4 +52,4 @@ Although the use of the widget is somehow controlled or static, some improvement
 - [ ] add font selection to the demo application
 
 ## Applications using this
-- Elementary OS Applet: [date-countdown](https://github.com/rickybas/date-countdown)
+- Elementary OS applet: [date-countdown](https://github.com/rickybas/date-countdown)
