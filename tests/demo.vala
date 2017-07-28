@@ -33,6 +33,8 @@ public static int main (string[] args) {
 
     var pbar_w = builder.get_object ("width") as Gtk.Label;
     var pbar_h = builder.get_object ("height") as Gtk.Label;
+    pbar_w.set_use_markup (true);
+    pbar_h.set_use_markup (true);
 
     var linew_adj = builder.get_object ("adjustment2") as Gtk.Adjustment;
 
@@ -98,9 +100,25 @@ public static int main (string[] args) {
     });
 
     window.configure_event.connect ((event) => {
-        pbar_w.set_text ("%d".printf (pbar.get_allocated_width ()));
-        pbar_h.set_text ("%d".printf (pbar.get_allocated_height ()));
-        linew_adj.set_upper ((double) pbar.get_allocated_height ()/2);
+        var w = pbar.get_allocated_width ();
+        var h = pbar.get_allocated_height ();
+        var wstr = "%d".printf (w);
+        var hstr = "%d".printf (h);
+
+        if (w > h) {
+            hstr = "<b><u>" + hstr + "</u></b>";
+        } else if (h > w) {
+            wstr = "<b><u>" + wstr + "</u></b>";
+        } else {
+            wstr = "<b><u>" + wstr + "</u></b>";
+            hstr = "<b><u>" + hstr + "</u></b>";
+        }
+
+        pbar_w.set_markup (wstr);
+        pbar_h.set_markup (hstr);
+
+        linew_adj.set_upper ((double) pbar.get_allocated_height () / 2);
+
         return false;
     });
 
