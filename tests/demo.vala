@@ -3,8 +3,8 @@
 /*
  * demo.vala
  *
- * Test CircularProgressBar visually. Tweak some settings/properties and check the results.
- * Could add color selection for fills.
+ * Test CircularProgressBar visually.
+ * Tweak some settings/properties and check the results.
  *
  * José Miguel Fonte
  */
@@ -15,6 +15,7 @@ public static int main (string[] args) {
     Gtk.init (ref args);
 
     var pbar    = new CircularProgressBar ();
+    pbar.margin = 6;
 
     var builder = new Gtk.Builder.from_file ("menu.glade");
     var window  = builder.get_object ("window1") as Gtk.Window; 
@@ -26,9 +27,14 @@ public static int main (string[] args) {
     var colorb2 = builder.get_object ("colorbutton2") as Gtk.ColorButton;
     var colorb3 = builder.get_object ("colorbutton3") as Gtk.ColorButton;
 
-    var button_cap              = builder.get_object ("togglebutton3") as Gtk.ToggleButton;
-    var button_center_filled    = builder.get_object ("togglebutton1") as Gtk.ToggleButton;
-    var button_radius_filled    = builder.get_object ("togglebutton2") as Gtk.ToggleButton;
+    var button_cap           = builder.get_object ("togglebutton3") as Gtk.ToggleButton;
+    var button_center_filled = builder.get_object ("togglebutton1") as Gtk.ToggleButton;
+    var button_radius_filled = builder.get_object ("togglebutton2") as Gtk.ToggleButton;
+
+    var pbar_w = builder.get_object ("width") as Gtk.Label;
+    var pbar_h = builder.get_object ("height") as Gtk.Label;
+
+    var linew_adj = builder.get_object ("adjustment2") as Gtk.Adjustment;
 
     viewp.add (pbar);
 
@@ -89,6 +95,13 @@ public static int main (string[] args) {
 
     s_linew.value_changed.connect (() => {
         pbar.line_width = ((int) s_linew.get_value ());
+    });
+
+    window.configure_event.connect ((event) => {
+        pbar_w.set_text ("%d".printf (pbar.get_allocated_width ()));
+        pbar_h.set_text ("%d".printf (pbar.get_allocated_height ()));
+        linew_adj.set_upper ((double) pbar.get_allocated_height ()/2);
+        return false;
     });
 
     window.destroy.connect (() => {
