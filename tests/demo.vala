@@ -102,8 +102,12 @@ public static int main (string[] args) {
     window.configure_event.connect ((event) => {
         var w = pbar.get_allocated_width ();
         var h = pbar.get_allocated_height ();
+
         var wstr = "%d".printf (w);
         var hstr = "%d".printf (h);
+
+        // The lowest is the indicator of the size
+        // because the widget keeps the aspect ratio
 
         if (w > h) {
             hstr = "<b><u>" + hstr + "</u></b>";
