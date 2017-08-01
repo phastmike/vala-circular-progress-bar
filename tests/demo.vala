@@ -11,6 +11,18 @@
 
 using CircularProgressWidgets;
 
+private static string convert_color_component_to_string (double color_component) {
+    return "%.2x".printf ((uint) (color_component * 255));
+}
+
+private static string convert_rgba_to_webcolor (Gdk.RGBA c) {
+    var red   = convert_color_component_to_string (c.red);
+    var green = convert_color_component_to_string (c.green);
+    var blue  = convert_color_component_to_string (c.blue);
+
+    return "#" + red + green + blue;
+}
+
 public static int main (string[] args) {
     Gtk.init (ref args);
 
@@ -59,18 +71,21 @@ public static int main (string[] args) {
     colorb3.set_rgba (color);
 
     colorb1.color_set.connect (() => {
-        pbar.center_fill_color = colorb1.get_rgba ().to_string ();
-        colorb1.set_tooltip_text (colorb1.get_rgba ().to_string ());
+        var c = colorb1.get_rgba ();
+        pbar.center_fill_color = c.to_string ();
+        colorb1.set_tooltip_text (convert_rgba_to_webcolor (c));
     });
 
     colorb2.color_set.connect ((new_color) => {
-        pbar.radius_fill_color = colorb2.get_rgba ().to_string ();
-        colorb2.set_tooltip_text (colorb2.get_rgba ().to_string ());
+        var c = colorb2.get_rgba ();
+        pbar.radius_fill_color = c.to_string ();
+        colorb2.set_tooltip_text (convert_rgba_to_webcolor (c));
     });
 
     colorb3.color_set.connect ((new_color) => {
-        pbar.progress_fill_color = colorb3.get_rgba ().to_string ();
-        colorb3.set_tooltip_text (colorb3.get_rgba ().to_string ());
+        var c = colorb3.get_rgba ();
+        pbar.progress_fill_color = c.to_string ();
+        colorb3.set_tooltip_text (convert_rgba_to_webcolor (c));
     });
 
     button_cap.toggled.connect (() => {
