@@ -51,5 +51,6 @@ Although the use of the widget is somehow controlled or static, some improvement
 - [x] ~~add color selection to the demo application~~
 - [ ] add font selection to the demo application
 
-## Applications using this
+## Applications using this circular progress bar
 - Elementary OS applet: [date-countdown](https://github.com/rickybas/date-countdown)
+- Elementary OS app: [Optimizer](https://github.com/hannesschulze/optimizer) (based on)
