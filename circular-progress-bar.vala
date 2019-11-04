@@ -31,7 +31,7 @@ namespace CircularProgressWidgets {
         public bool radius_filled {set; get; default = false;}
 
         [Description(nick = "Font", blurb = "Font description without size, just the font name")]
-        public string font {set; get; default = "URW Gothic L Book";}
+        public string font {set; get; default = "URW Gothic";}
 
         [Description(nick = "Line Cap", blurb = "Line Cap for stroke as in Cairo.LineCap")]
         public Cairo.LineCap line_cap {set; get; default = Cairo.LineCap.BUTT;}
