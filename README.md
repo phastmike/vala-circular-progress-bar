@@ -56,3 +56,4 @@ Although the use of the widget is somehow controlled or static, some improvement
 ## Applications using this circular progress bar
 - Elementary OS applet: [date-countdown](https://github.com/rickybas/date-countdown)
 - Elementary OS app: [Optimizer](https://github.com/hannesschulze/optimizer) (based on)
+- Elementary OS app: [Planner](https://github.com/alainm23/planner) (project progress)
