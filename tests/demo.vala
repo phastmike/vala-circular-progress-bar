@@ -43,6 +43,9 @@ public static int main (string[] args) {
     var button_center_filled = builder.get_object ("togglebutton1") as Gtk.ToggleButton;
     var button_radius_filled = builder.get_object ("togglebutton2") as Gtk.ToggleButton;
 
+    button_center_filled.bind_property ("active", pbar, "center_filled", BindingFlags.DEFAULT);
+    button_radius_filled.bind_property ("active", pbar, "radius_filled", BindingFlags.DEFAULT);
+
     var pbar_w = builder.get_object ("width") as Gtk.Label;
     var pbar_h = builder.get_object ("height") as Gtk.Label;
     pbar_w.set_use_markup (true);
@@ -98,14 +101,6 @@ public static int main (string[] args) {
         button_cap.set_tooltip_text (pbar.line_cap.to_string ());
     });
 
-    button_center_filled.toggled.connect (() => {
-        pbar.center_filled = !pbar.center_filled;
-    });
-
-    button_radius_filled.toggled.connect (() => {
-        pbar.radius_filled = !pbar.radius_filled;
-    });
-
     s_progr.value_changed.connect (() => {
         pbar.percentage = s_progr.get_value ();
     });
@@ -136,7 +131,7 @@ public static int main (string[] args) {
         pbar_w.set_markup (wstr);
         pbar_h.set_markup (hstr);
 
-        linew_adj.set_upper ((double) pbar.get_allocated_height () / 2);
+        linew_adj.set_upper ((double) int.min (w, h) / 2);
 
         return false;
     });

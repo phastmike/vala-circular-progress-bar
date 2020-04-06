@@ -14,6 +14,10 @@ A Circular progress bar Gtk.Widget, implemented in **Vala**. At the moment, only
 - Fill colors (Center, Radius and Progress)
 - Toggle fullscale progress (with different fill color)
 
+### Notes regarding Line width
+
+When setting `line_width` as zero, the progress will be rendered as a pie, fully filled and radius fill will be ignored.
+
 ## Requirements
 This widget should build and run on systems with:
 - Gtk+ >= 3.18
