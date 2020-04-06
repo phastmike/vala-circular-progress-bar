@@ -210,7 +210,6 @@ namespace CircularProgressWidgets {
                             delta+1,
                             1.5  * Math.PI,
                             (1.5 + percentage * 2 ) * Math.PI);
-                    Gdk.cairo_set_source_rgba (cr, color);
                     cr.fill ();
                 } else {
                     cr.arc (center_x,
