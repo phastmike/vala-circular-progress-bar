@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/phastmike/vala-circular-progress-bar.svg?branch=master)](https://travis-ci.org/phastmike/vala-circular-progress-bar)
+[![Build Status](https://app.travis-ci.com/phastmike/vala-circular-progress-bar.svg?branch=master)](https://app.travis-ci.com/github/phastmike/vala-circular-progress-bar)
 
 # CircularProgressBar
 A Circular progress bar Gtk.Widget, implemented in **Vala**. At the moment, only renders percentage. Main goal was to implement a simple circular progress bar for a UI Dashboard.
