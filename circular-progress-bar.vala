@@ -16,7 +16,7 @@ using Gtk;
 using Cairo;
 
 namespace CircularProgressWidgets {
-    public class CircularProgressBar : Gtk.Bin {
+    public class CircularProgressBar : Gtk.DrawingArea {
         private const int MIN_D = 80;
         private int _line_width;
         private double _percentage;
@@ -114,6 +114,8 @@ namespace CircularProgressWidgets {
         }
 
         public CircularProgressBar () {
+            set_draw_func(draw);
+
             notify.connect (() => {
                 queue_draw ();
             });
@@ -131,6 +133,7 @@ namespace CircularProgressWidgets {
             return Gtk.SizeRequestMode.CONSTANT_SIZE;
         }
 
+/*
         public override void get_preferred_width (out int min_w, out int natural_w) {
             var d = calculate_diameter ();
             min_w = MIN_D;
@@ -150,12 +153,14 @@ namespace CircularProgressWidgets {
                 natural_h = MIN_D;           
             }
         }
+*/
 
+/*
         public override void size_allocate (Gtk.Allocation allocation) {
             base.size_allocate (allocation);
         }
-
-        public override bool draw (Cairo.Context cr) {
+*/
+        public void draw (DrawingArea da, Cairo.Context cr, int width, int height) {
             int w,h;
             int delta;
             Gdk.RGBA color;
@@ -224,10 +229,10 @@ namespace CircularProgressWidgets {
             // Textual information
             var context = get_style_context ();
             context.save ();
-            context.add_class (Gtk.STYLE_CLASS_TROUGH);
-            color = context.get_color (context.get_state ());
+            //context.add_class (Gtk.STYLE_CLASS_TROUGH);
+            //color = context.get_color (context.get_state ());
             Gdk.cairo_set_source_rgba (cr, color);
-
+/*
             // Percentage
             layout = Pango.cairo_create_layout (cr);
             layout.set_text ("%d".printf ((int) (percentage * 100.0)), -1);
@@ -246,11 +251,11 @@ namespace CircularProgressWidgets {
             layout.get_size (out w, out h); 
             cr.move_to (center_x - ((w / Pango.SCALE) / 2), center_y + 13);
             Pango.cairo_show_layout (cr, layout);
-
+*/
             context.restore ();
             cr.restore ();
 
-            return base.draw(cr);
+            //return base.draw(cr);
         }
     }
 }
