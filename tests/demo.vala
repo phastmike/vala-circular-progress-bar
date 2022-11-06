@@ -32,7 +32,9 @@ int main (string[] args) {
         //pbar.margin = 6;
 
         var builder = new Gtk.Builder.from_file ("menu.glade");
-        var window  = builder.get_object ("window1") as Gtk.Window; 
+        
+        var window  = builder.get_object ("window1") as Gtk.ApplicationWindow; 
+        window.set_application(app);
         var viewp   = builder.get_object ("viewport1") as Gtk.Viewport;
         var s_progr = builder.get_object ("scale1") as Gtk.Scale;    
         var s_linew = builder.get_object ("scale2") as Gtk.Scale;    
@@ -55,7 +57,7 @@ int main (string[] args) {
 
         var linew_adj = builder.get_object ("adjustment2") as Gtk.Adjustment;
 
-        //viewp.add (pbar);
+        viewp.set_child (pbar);
         //window.set_child(pbar);
 
         // Set default tooltips
@@ -112,36 +114,24 @@ int main (string[] args) {
             pbar.line_width = ((int) s_linew.get_value ());
         });
 
-    /*
-        window.configure_event.connect ((event) => {
-            var w = pbar.get_allocated_width ();
-            var h = pbar.get_allocated_height ();
-
-            var wstr = "%d".printf (w);
-            var hstr = "%d".printf (h);
-
-            // The lowest is the indicator of the size
-            // because the widget keeps the aspect ratio
-
-            if (w > h) {
-                hstr = "<b><u>" + hstr + "</u></b>";
-            } else if (h > w) {
-                wstr = "<b><u>" + wstr + "</u></b>";
-            } else {
-                wstr = "<b><u>" + wstr + "</u></b>";
-                hstr = "<b><u>" + hstr + "</u></b>";
-            }
-
+        window.notify["default-width"].connect ((s,p) => {
+            var wstr = "%d".printf (window.default_width);
             pbar_w.set_markup (wstr);
-            pbar_h.set_markup (hstr);
-
+            var w = window.default_width;
+            var h = window.default_height;
             linew_adj.set_upper ((double) int.min (w, h) / 2);
-
-            return false;
+            s_linew.queue_draw ();
         });
-    */
+
+        window.notify["default-height"].connect ((s,p) => {
+            var hstr = "%d".printf (window.default_height);
+            pbar_h.set_markup (hstr);
+            var w = window.default_width;
+            var h = window.default_height;
+            linew_adj.set_upper ((double) int.min (w, h) / 2);
+            s_linew.queue_draw ();
+        });
         window.present ();
-        Idle.add (() => { Posix.sleep (10000); return false;});
     });
 
     return app.run(args);

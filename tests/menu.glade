@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="4.0"/>
+
   <object class="GtkAdjustment" id="adjustment1">
     <property name="upper">1</property>
     <property name="step_increment">0.01</property>
     <property name="page_increment">10</property>
   </object>
+
   <object class="GtkAdjustment" id="adjustment2">
     <property name="upper">100</property>
     <property name="value">1</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
+
   <object class="GtkApplicationWindow" id="window1">
     <property name="can_focus">False</property>
+
     <child type="titlebar">
       <object class="GtkHeaderBar" id="header_bar">
         <style>
@@ -21,52 +25,39 @@
         </style>
       </object>
     </child>
+
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">6</property>
+        <property name="homogeneous">false</property>
         <child>
           <object class="GtkViewport" id="viewport1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="vexpand">True</property>
-        <!--<property name="shadow_type">none</property>-->
             <child>
               <placeholder/>
             </child>
           </object>
-       <!--
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-         </packing>
-      -->
         </child>
         <child>
           <object class="GtkSeparator">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
           </object>
-       <!--
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-       -->
         </child>
         <child>
-          <object class="GtkGrid">
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">end</property>
-        <!--<property name="border_width">6</property>-->
-            <property name="row_spacing">6</property>
-            <property name="column_spacing">6</property>
+            <!--<property name="row_spacing">6</property>
+            <property name="column_spacing">6</property>-->
             <child>
               <object class="GtkScale" id="scale2">
                 <property name="visible">True</property>
@@ -76,12 +67,8 @@
                 <property name="round_digits">1</property>
                 <property name="digits">0</property>
                 <property name="value_pos">bottom</property>
+                <property name="draw_value">true</property>
               </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">3</property>
-                <property name="width">3</property>
-          </packing>-->
             </child>
             <child>
               <object class="GtkLabel">
@@ -90,11 +77,6 @@
                 <property name="halign">start</property>
                 <property name="label" translatable="yes">Percentage</property>
               </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">3</property>
-          </packing>-->
             </child>
             <child>
               <object class="GtkScale" id="scale1">
@@ -105,25 +87,39 @@
                 <property name="round_digits">1</property>
                 <property name="digits">2</property>
                 <property name="value_pos">bottom</property>
+                <property name="draw_value">true</property>
               </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
-                <property name="width">3</property>
-          </packing>-->
             </child>
             <child>
               <object class="GtkLabel">
-                <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="label" translatable="yes">Line width</property>
               </object>
-              <!--packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">2</property>
-                <property name="width">3</property>
-          </packing>-->
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel" id="label1">
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Center</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label2">
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Radius</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Progress</property>
+                  </object>
+                </child>
+              </object>
             </child>
             <child>
               <object class="GtkBox">
@@ -136,11 +132,6 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-            </packing>-->
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="togglebutton2">
@@ -149,11 +140,6 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-            </packing>-->
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="togglebutton3">
@@ -162,21 +148,11 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-            </packing>-->
                 </child>
                 <style>
                   <class name="linked"/>
                 </style>
               </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">5</property>
-                <property name="width">3</property>
-          </packing>-->
             </child>
             <child>
               <object class="GtkBox">
@@ -188,11 +164,6 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-            </packing>-->
                 </child>
                 <child>
                   <object class="GtkColorButton" id="colorbutton2">
@@ -200,11 +171,6 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-            </packing>-->
                 </child>
                 <child>
                   <object class="GtkColorButton" id="colorbutton3">
@@ -212,68 +178,11 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-            </packing>-->
                 </child>
                 <style>
                   <class name="linked"/>
                 </style>
               </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">6</property>
-                <property name="width">3</property>
-          </packing>-->
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkLabel" id="label1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Center</property>
-                  </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-            </packing>-->
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Radius</property>
-                  </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-            </packing>-->
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Progress</property>
-                  </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-            </packing>-->
-                </child>
-              </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">4</property>
-                <property name="width">3</property>
-          </packing>-->
             </child>
             <child>
               <object class="GtkBox">
@@ -288,11 +197,6 @@
                     <property name="label" translatable="yes">&lt;b&gt;W x H&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-            </packing>-->
                 </child>
                 <child>
                   <object class="GtkLabel" id="width">
@@ -300,11 +204,6 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">80</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-            </packing>-->
                 </child>
                 <child>
                   <object class="GtkLabel" id="height">
@@ -312,25 +211,10 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">80</property>
                   </object>
-            <!--<packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-            </packing>-->
                 </child>
               </object>
-          <!--<packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">7</property>
-                <property name="width">3</property>
-          </packing>-->
             </child>
           </object>
-       <!--<packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-       </packing>-->
         </child>
       </object>
     </child>
