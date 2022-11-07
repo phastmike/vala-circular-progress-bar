@@ -3,7 +3,7 @@
 # CircularProgressBar
 A Circular progress bar Gtk.Widget, implemented in **Vala**. Main goal was to implement a simple circular progress bar for a UI Dashboard.
 
-It now supports Gtk4 and the previous version targeted Gtk3 and now resides in the `gtk3` branch.
+It now supports Gtk4, the previous version targeted Gtk3 and now resides in the `gtk3` branch.
 
 ![Visual examples](/cpb-splash.png "Some visual examples")
 
