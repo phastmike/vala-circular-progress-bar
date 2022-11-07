@@ -199,6 +199,8 @@ namespace CircularProgressWidgets {
             // Textual information
             var context = get_style_context ();
             context.save ();
+            // FIXME: Gtk4 has changes in the styles that need to be reviewed
+            // For now we get the text color from the defaut context.
             color = context.get_color ();
             Gdk.cairo_set_source_rgba (cr, color);
 
