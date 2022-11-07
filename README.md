@@ -1,7 +1,9 @@
 [![Build Status](https://app.travis-ci.com/phastmike/vala-circular-progress-bar.svg?branch=master)](https://app.travis-ci.com/github/phastmike/vala-circular-progress-bar)
 
 # CircularProgressBar
-A Circular progress bar Gtk.Widget, implemented in **Vala**. At the moment, only renders percentage. Main goal was to implement a simple circular progress bar for a UI Dashboard.
+A Circular progress bar Gtk.Widget, implemented in **Vala**. Main goal was to implement a simple circular progress bar for a UI Dashboard.
+
+It now supports Gtk4 and the previous version targeted Gtk3 and now resides in the `gtk3` branch.
 
 ![Visual examples](/cpb-splash.png "Some visual examples")
 
@@ -53,7 +55,6 @@ The demo/test application allows you to tweak some of the properties in order th
 Although the use of the widget is somehow controlled or static, some improvements could be made if some dynamic behaviour is needed, will list them as a ToDo list:
 
 - [ ] improve resizing and properties relation
-- [ ] define progress units (hardcoded atm as percentage)
 - [x] ~~add color selection to the demo application~~
 - [ ] add font selection to the demo application
 
