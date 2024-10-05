@@ -62,3 +62,4 @@ Although the use of the widget is somehow controlled or static, some improvement
 - Elementary OS applet: [date-countdown](https://github.com/rickybas/date-countdown)
 - Elementary OS app: [Optimizer](https://github.com/hannesschulze/optimizer) (based on)
 - Elementary OS app: [Planner](https://github.com/alainm23/planner) (project progress)
+- Elkowars Wacky Widgets: [Eww](https://github.com/elkowar/eww) (served as [inspiration for their circular progress bar](https://github.com/elkowar/eww/issues/233))
